@@ -10,11 +10,14 @@
 
 <style>
 :root {
-  --main-background: #747474;
+  --main-background: #383838;
   --main-color: #fff;
   --auxiliary-color: #b9b9b9;
   --line-color: #9d9d9d;
   --footer-color: #898989;
+  --buttons-color: #33c5f3;
+  --buttons-radius: 3px;
+  --buttons-height: 50px;
   --main-font: Geometria, Helvetica, Arial, sans-serif;
 }
 body {
