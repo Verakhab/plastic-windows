@@ -47,7 +47,6 @@ export default {
   grid-template-areas:
     "main__calc main__props"
     "main__config main__description";
-  /* border-bottom: 1px solid var(--second-color); */
 }
 .main__calc {
   display: grid;
@@ -160,6 +159,8 @@ export default {
 }
 .main__props-button {
   grid-area: main__props-button-base;
+  width: 13.1vmax;
+  justify-self: end;
   background-color: var(--buttons-color);
   border-radius: var(--buttons-radius);
   height: var(--buttons-height);
