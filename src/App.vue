@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Header />
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -8,13 +9,23 @@
   </div>
 </template>
 
+<script>
+import Header from "@/components/Header.vue";
+
+export default {
+  components: {
+    Header,
+  },
+};
+</script>
+
 <style>
 :root {
   --main-background: #383838;
   --main-color: #fff;
+  --second-color: #898989;
   --auxiliary-color: #b9b9b9;
   --line-color: #9d9d9d;
-  --footer-color: #898989;
   --buttons-color: #33c5f3;
   --buttons-radius: 3px;
   --buttons-height: 50px;

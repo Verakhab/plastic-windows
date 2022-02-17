@@ -5,7 +5,7 @@
       <div class="header__info-user">
         <img
           class="header__foto-user"
-          src="../assets/avatar.png"
+          src="../assets/images/avatar.png"
           alt="user avatar"
         />
         <p class="header__text-user">
@@ -35,7 +35,6 @@ export default {
 }
 .header__logo {
   flex: 1 1 9vmax;
-  font-family: Geometria;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -106,6 +105,6 @@ export default {
 .header__menu {
   width: 20px;
   height: 13px;
-  background-image: url("../assets/menu.png");
+  background-image: url("../assets/images/menu.png");
 }
 </style>
