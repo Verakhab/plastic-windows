@@ -92,6 +92,7 @@ export default {
   height: var(--buttons-height);
   border: none;
   color: var(--main-color);
+  cursor: pointer;
 }
 @media screen and (min-width: 375px) and (max-width: 830px) {
   .header__button {

@@ -2,7 +2,19 @@
   <main class="main">
     <div class="main__calc">
       <div class="main__calc-title">Калькулятор</div>
-      <div class="main__calc-base"></div>
+      <button
+        class="main__calc-button-minus"
+        v-if="window.length > 1"
+        @click="removeWindow"
+      ></button>
+      <div class="main__calc-base">
+        <MainCalc :windows="window" />
+      </div>
+      <button
+        class="main__calc-button-plus"
+        v-if="window.length <= 2"
+        @click="addWindow"
+      ></button>
       <div class="main__calc-description">
         Окно 3х створчатое, габарит (ШхВ) 1800х1200мм
       </div>
@@ -32,10 +44,29 @@
 
 <script>
 import Carousel from "@/components/Carousel.vue";
+import MainCalc from "@/components/MainCalc.vue";
 export default {
   name: "MainLayout",
   components: {
     Carousel,
+    MainCalc,
+  },
+  data() {
+    return {
+      window: [require("../assets/images/deaf.jpg")],
+    };
+  },
+  methods: {
+    removeWindow() {
+      if (this.window.length > 1) {
+        this.window.pop();
+      }
+    },
+    addWindow() {
+      if (this.window.length <= 2) {
+        this.window.push(require("../assets/images/deaf.jpg"));
+      }
+    },
   },
 };
 </script>
@@ -54,15 +85,17 @@ export default {
 }
 .main__calc {
   display: grid;
-  grid-template-columns: 0.4fr 2.2fr 0.4fr;
-  grid-template-rows: 0.4fr 2.4fr 0.2fr;
+  grid-template-columns: 0 2.2fr 0;
+  grid-template-rows: 0.4fr 3.45fr 0.2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "main__calc-title main__calc-title main__calc-title"
-    "main__calc-base main__calc-base main__calc-base"
+    "main__calc-button-minus main__calc-base main__calc-button-plus"
     "main__calc-description main__calc-description main__calc-description";
   grid-area: main__calc;
+  margin-bottom: 3vmax;
+  position: relative;
 }
 .main__calc-title {
   grid-area: main__calc-title;
@@ -71,6 +104,7 @@ export default {
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0em;
+  margin-bottom: 1.8vmax;
 }
 .main__calc-title::before {
   content: "";
@@ -84,20 +118,51 @@ export default {
 }
 .main__calc-base {
   grid-area: main__calc-base;
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
-.main__calc-base::before {
-  content: "";
+.main__calc-button-minus {
+  position: absolute;
+  top: 47.6%;
+  left: -60px;
   width: 50px;
   height: 50px;
   display: inline-block;
+  background-repeat: no-repeat;
+  background: transparent;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 1;
   background-image: url("../assets/images/calc-remove.svg");
+  background-repeat: no-repeat;
+  opacity: 0.5;
 }
-.main__calc-base::after {
-  content: "";
+.main__calc-button-minus:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+.main__calc-button-plus {
+  position: absolute;
+  top: 47.6%;
+  right: -60px;
   width: 50px;
   height: 50px;
   display: inline-block;
+  background-repeat: no-repeat;
+  background: transparent;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 1;
   background-image: url("../assets/images/calc-add.svg");
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+.main__calc-button-plus:hover {
+  transition: 0.5s;
+  opacity: 1;
 }
 .main__calc-description {
   grid-area: main__calc-description;
@@ -107,6 +172,7 @@ export default {
   line-height: 1;
   letter-spacing: 0em;
   color: var(--second-color);
+  margin-top: 1.5vmax;
 }
 .main__config {
   display: grid;
@@ -127,6 +193,7 @@ export default {
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0em;
+  margin-bottom: 2.6vmax;
 }
 .main__config-base {
   grid-area: main__config-base;
@@ -165,6 +232,7 @@ export default {
   height: var(--buttons-height);
   border: none;
   color: var(--main-color);
+  cursor: pointer;
 }
 .main__description {
   grid-area: main__description;
