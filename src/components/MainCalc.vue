@@ -1,9 +1,13 @@
 <template>
   <div class="main-calc">
-    <div class="main-calc__all" v-for="(window, index) in windows" :key="index">
+    <div
+      class="main-calc__all"
+      v-for="(wind, index) in this.$store.state.window"
+      :key="index"
+    >
       <div class="main-calc__window">
-        <img :src="window" alt="window" />
-        <button class="main-calc__button" @click="show"></button>
+        <img :src="wind.link" alt="window" />
+        <button class="main-calc__button" @click="show(wind, index)"></button>
       </div>
     </div>
   </div>
@@ -12,15 +16,10 @@
 <script>
 export default {
   name: "MainCalc",
-  data() {
-    return {
-      showPopup: false,
-    };
-  },
-  props: ["windows"],
   methods: {
-    show() {
-      this.showPopup = !this.showPopup;
+    show(wind, index) {
+      this.$store.commit("index", index);
+      this.$store.commit("isActive");
     },
   },
 };
@@ -30,7 +29,7 @@ export default {
 .main-calc {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .main-calc__window {
   position: relative;

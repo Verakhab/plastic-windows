@@ -1,8 +1,8 @@
 <template>
   <div class="carousel">
     <VueSlickCarousel v-bind="settings">
-      <div class="carousel__block" v-for="type in types" :key="type">
-        <img :src="type" alt="type window" />
+      <div class="carousel__block" v-for="(type, index) in types" :key="type">
+        <img :src="type" alt="type window" @click="choiceConfig(index)" />
       </div>
     </VueSlickCarousel>
   </div>
@@ -48,6 +48,66 @@ export default {
         require("../assets/images/bb_one_rl.svg"),
       ],
     };
+  },
+  methods: {
+    choiceConfig(index) {
+      // console.log(index)
+      switch (index) {
+        case 0:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.deaf,
+          ]);
+          break;
+        case 1:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.rotary.left,
+            this.$store.state.typeWindow[0].windows.deaf,
+          ]);
+          break;
+        case 2:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.rotary.left,
+            this.$store.state.typeWindow[0].windows.deaf,
+            this.$store.state.typeWindow[0].windows.rotary.right,
+          ]);
+          break;
+        case 3:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].doors.left,
+            this.$store.state.typeWindow[0].windows.rotary.left,
+          ]);
+          break;
+        case 4:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.rotary.right,
+            this.$store.state.typeWindow[0].doors.right,
+          ]);
+          break;
+        case 5:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].doors.left,
+            this.$store.state.typeWindow[0].windows.rotary.left,
+            this.$store.state.typeWindow[0].windows.swingOut.left,
+          ]);
+          break;
+        case 6:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.swingOut.right,
+            this.$store.state.typeWindow[0].windows.rotary.right,
+            this.$store.state.typeWindow[0].doors.right,
+          ]);
+          break;
+        case 7:
+          this.$store.commit("changeWindow", [
+            this.$store.state.typeWindow[0].windows.rotary.right,
+            this.$store.state.typeWindow[0].doors.right,
+            this.$store.state.typeWindow[0].windows.swingOut.left,
+          ]);
+          break;
+        default:
+          break;
+      }
+    },
   },
 };
 </script>
