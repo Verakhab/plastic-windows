@@ -6,7 +6,13 @@
       :key="index"
     >
       <div class="main-calc__window">
-        <img :src="wind.link" alt="window" />
+        <img :src="wind.image" alt="window" />
+        <img
+          class="main-calc__window-mosqito"
+          v-if="wind.mosqito"
+          src="../assets/images/mosqito.png"
+          alt="mosqito net"
+        />
         <button class="main-calc__button" @click="show(wind, index)"></button>
       </div>
     </div>
@@ -33,6 +39,11 @@ export default {
 }
 .main-calc__window {
   position: relative;
+}
+.main-calc__window-mosqito {
+  position: absolute;
+  top: 4px;
+  right: 5px;
 }
 .main-calc__button {
   width: 25px;
