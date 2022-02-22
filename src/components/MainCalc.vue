@@ -42,7 +42,7 @@ export default {
 }
 .main-calc__window-mosqito {
   position: absolute;
-  top: 4px;
+  top: 5px;
   right: 5px;
 }
 .main-calc__button {

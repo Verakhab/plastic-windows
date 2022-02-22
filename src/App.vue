@@ -25,6 +25,7 @@ export default {
   --second-color: #898989;
   --auxiliary-color: #b9b9b9;
   --line-color: #9d9d9d;
+  --color-accordion: #454545;
   --buttons-color: #33c5f3;
   --buttons-radius: 3px;
   --buttons-height: 50px;
@@ -42,17 +43,4 @@ body {
   color: #fff;
   background-color: var(--main-background);
 }
-
-/* #nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>
