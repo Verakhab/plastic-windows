@@ -5,9 +5,29 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    orderNumber: 0,
     numberIndex: 0,
     isActive: false,
     window: [],
+    option: {
+      widthSash: "",
+      heightSash: "",
+      profil: "",
+      accessories: "",
+      externalLamination: "",
+      glazedWindows: "",
+      internalLamination: "",
+      windowsillWidth: "",
+      windowsillLength: "",
+      upperSlopeWidth: "",
+      upperSlopeLength: "",
+      lowTideWidth: "",
+      lowTideLength: "",
+      sideSlopesWidth: "",
+      sideSlopesLength: "",
+    },
+    order: [],
+    calculate: {},
   },
   mutations: {
     index(state, payload) {
@@ -35,6 +55,22 @@ export default new Vuex.Store({
     },
     addMosqito(state, payload) {
       state.window[payload].mosqito = !state.window[payload].mosqito;
+    },
+    addConfig(state, payload) {
+      state.window.push(payload);
+    },
+    updateOption(state, payload) {
+      state.option.payload = payload;
+    },
+    order(state) {
+      state.orderNumber++;
+      for (let orderNum = 1; orderNum <= state.orderNumber; orderNum++) {
+        state.calculate[`order_${orderNum}`] = {};
+        state.window.forEach((el, index) => {
+          state.calculate[`order_${orderNum}`][`sash_${index + 1}`] = el;
+        });
+        state.calculate[`order_${orderNum}`]["option"] = state.option;
+      }
     },
   },
   actions: {},

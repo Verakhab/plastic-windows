@@ -30,11 +30,39 @@
     <div class="main__column-spacer"></div>
     <div class="main__column-second">
       <div class="main__props">
-        <div class="main__props-basket"></div>
-        <div class="main__props-base">
-          <Accordion :content="example" />
+        <div class="main__props-basket">
+          <div v-if="$store.state.orderNumber" class="main__props-basket-order">
+            <p class="main__props-basket-order-number">
+              {{ $store.state.orderNumber }}
+            </p>
+          </div>
         </div>
-        <button class="main__props-button">Добавить в заказ</button>
+        <div class="main__props-base">
+          <Accordion :content="dataSash" />
+        </div>
+        <button
+          class="main__props-button"
+          @click="order"
+          :disabled="
+            !$store.state.option.heightSash ||
+            !$store.state.option.widthSash ||
+            !$store.state.option.profil ||
+            !$store.state.option.accessories ||
+            !$store.state.option.externalLamination ||
+            !$store.state.option.glazedWindows ||
+            !$store.state.option.internalLamination ||
+            !$store.state.option.windowsillWidth ||
+            !$store.state.option.windowsillLength ||
+            !$store.state.option.upperSlopeWidth ||
+            !$store.state.option.upperSlopeLength ||
+            !$store.state.option.lowTideWidth ||
+            !$store.state.option.lowTideLength ||
+            !$store.state.option.sideSlopesWidth ||
+            !$store.state.option.sideSlopesLength
+          "
+        >
+          Добавить в заказ
+        </button>
       </div>
       <div class="main__description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -67,36 +95,24 @@ export default {
   },
   data() {
     return {
-      example: [
+      dataSash: [
         {
           id: 1,
           active: false,
           title: "Размеры",
-          details: `
-      <p>You can crush me but you can't crush my spirit! Are you crazy? I can't swallow that. Who's brave enough to fly into something we all keep calling a death sphere? It doesn't look so shiny to me.</p>
-      <ul>
-        <li>I just want to talk.</li>
-        <li>It has nothing to do with mating.</li>
-        <li>Fry, that doesn't make sense.</li>
-      </ul>
-    `,
+          details: "",
         },
         {
           id: 2,
           active: false,
           title: "Система",
-          details: `
-      <p>Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff!</p>
-    `,
+          details: "",
         },
         {
           id: 3,
           active: false,
           title: `Комплектация`,
-          details: `
-      <p>And then the battle's not so bad? You'll have all the Slurm you can drink when you're partying with Slurms McKenzie! Say it in Russian!</p>
-      <p>Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat.</p>
-    `,
+          details: "",
         },
       ],
     };
@@ -134,6 +150,9 @@ export default {
           )
         );
       }
+    },
+    order() {
+      this.$store.commit("order");
     },
   },
 };
@@ -253,6 +272,25 @@ export default {
   width: 20px;
   height: 20px;
   align-self: end;
+  position: relative;
+}
+.main__props-basket-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--order-color);
+  border-radius: 10px;
+  bottom: 10px;
+  right: 12px;
+}
+.main__props-basket-order-number {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 0.1;
 }
 .main__props-base {
   margin-top: 15px;
@@ -276,5 +314,10 @@ export default {
   letter-spacing: 0em;
   color: var(--second-color);
   margin-top: 70px;
+}
+button:disabled {
+  background-color: var(--buttons-disabled);
+  cursor: default;
+  color: var(--color-accordion);
 }
 </style>
