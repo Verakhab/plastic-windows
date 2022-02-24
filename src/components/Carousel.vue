@@ -10,6 +10,7 @@
 
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
+import Sash from "../plugins/Sash.js";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
@@ -51,57 +52,189 @@ export default {
   },
   methods: {
     choiceConfig(index) {
-      // console.log(index)
       switch (index) {
         case 0:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.deaf,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Глухое",
+              "window",
+              "",
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
           ]);
           break;
         case 1:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.rotary.left,
-            this.$store.state.typeWindow[0].windows.deaf,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Правое открывание",
+              "window",
+              "",
+              "rotary",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
+            new Sash(
+              "Глухое",
+              "window",
+              "right",
+              "deaf",
+              true,
+              require("../assets/images/Right-opening-window.jpg")
+            ),
           ]);
           break;
         case 2:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.rotary.left,
-            this.$store.state.typeWindow[0].windows.deaf,
-            this.$store.state.typeWindow[0].windows.rotary.right,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "window",
+              "left",
+              "rotary",
+              true,
+              require("../assets/images/Left-opening-window.jpg")
+            ),
+            new Sash(
+              "Глухое",
+              "window",
+              "",
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "window",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-window.jpg")
+            ),
           ]);
           break;
         case 3:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].doors.left,
-            this.$store.state.typeWindow[0].windows.rotary.left,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "door",
+              "left",
+              "rotary",
+              false,
+              require("../assets/images/Left-opening-door.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "window",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-window.jpg")
+            ),
           ]);
           break;
         case 4:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.rotary.right,
-            this.$store.state.typeWindow[0].doors.right,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "window",
+              "left",
+              "rotary",
+              false,
+              require("../assets/images/Left-opening-window.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "door",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-door.jpg")
+            ),
           ]);
           break;
         case 5:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].doors.left,
-            this.$store.state.typeWindow[0].windows.rotary.left,
-            this.$store.state.typeWindow[0].windows.swingOut.left,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "door",
+              "left",
+              "rotary",
+              false,
+              require("../assets/images/Left-opening-door.jpg")
+            ),
+            new Sash(
+              "Глухое",
+              "window",
+              "",
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "window",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-window.jpg")
+            ),
           ]);
           break;
         case 6:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.swingOut.right,
-            this.$store.state.typeWindow[0].windows.rotary.right,
-            this.$store.state.typeWindow[0].doors.right,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "window",
+              "left",
+              "rotary",
+              false,
+              require("../assets/images/Left-opening-window.jpg")
+            ),
+            new Sash(
+              "Глухое",
+              "window",
+              "",
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "door",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-door.jpg")
+            ),
           ]);
           break;
         case 7:
-          this.$store.commit("changeWindow", [
-            this.$store.state.typeWindow[0].windows.rotary.right,
-            this.$store.state.typeWindow[0].doors.right,
-            this.$store.state.typeWindow[0].windows.swingOut.left,
+          this.$store.commit("choiceConfig", [
+            new Sash(
+              "Левое открывание",
+              "window",
+              "left",
+              "rotary",
+              false,
+              require("../assets/images/Left-opening-window.jpg")
+            ),
+            new Sash(
+              "Правое открывание",
+              "door",
+              "right",
+              "rotary",
+              false,
+              require("../assets/images/Right-opening-door.jpg")
+            ),
+            new Sash(
+              "Глухое",
+              "window",
+              "",
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
+            ),
           ]);
           break;
         default:

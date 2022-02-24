@@ -1,17 +1,23 @@
 <template>
   <div class="popup-calc" v-if="this.$store.state.isActive">
     <div class="popup-calc__popup">
-      <div class="popup-calc__popup-header">
-        Створка {{ this.$store.state.numberIndex }}
+      <h2 class="popup-calc__popup-header">
+        Створка {{ this.$store.state.numberIndex + 1 }}
         <button class="popup-calc__close" @click="close"></button>
-      </div>
+      </h2>
+      <FormConfig />
     </div>
   </div>
 </template>
 
 <script>
+import FormConfig from "@/components/FormConfig.vue";
+
 export default {
   name: "PopupCalc",
+  components: {
+    FormConfig,
+  },
   methods: {
     close() {
       this.$store.commit("isActive");
@@ -47,10 +53,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 30px 30px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background: var(--buttons-color);
+  margin: 0;
 }
 .popup-calc__close {
   background-image: url("../assets/images/close.png");

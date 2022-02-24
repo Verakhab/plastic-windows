@@ -47,6 +47,7 @@
 import Carousel from "@/components/Carousel.vue";
 import MainCalc from "@/components/MainCalc.vue";
 import PopupCalc from "@/components/PopupCalc.vue";
+import Sash from "../plugins/Sash.js";
 
 export default {
   name: "MainLayout",
@@ -58,7 +59,14 @@ export default {
   created() {
     this.$store.commit(
       "addWindow",
-      this.$store.state.typeWindow[0].windows.deaf
+      new Sash(
+        "Глухое",
+        "window",
+        false,
+        "deaf",
+        false,
+        require("../assets/images/deaf.jpg")
+      )
     );
   },
   methods: {
@@ -71,7 +79,14 @@ export default {
       if (this.$store.state.window.length < 3) {
         this.$store.commit(
           "addWindow",
-          this.$store.state.typeWindow[0].windows.deaf
+          new Sash(
+            "Глухое",
+            "window",
+            false,
+            "deaf",
+            false,
+            require("../assets/images/deaf.jpg")
+          )
         );
       }
     },

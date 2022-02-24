@@ -8,59 +8,10 @@ export default new Vuex.Store({
     numberIndex: 0,
     isActive: false,
     window: [],
-    typeWindow: [
-      {
-        windows: {
-          deaf: {
-            name: "Глухое",
-            link: require("../assets/images/deaf.jpg"),
-            mosquito: false,
-          },
-          rotary: {
-            right: {
-              name: "Правое открывание",
-              link: require("../assets/images/Right-opening-window.jpg"),
-              mosquito: false,
-            },
-            left: {
-              name: "Левое открывание",
-              link: require("../assets/images/Left-opening-window.jpg"),
-              mosquito: false,
-            },
-          },
-          swingOut: {
-            right: {
-              name: "Поворотно-откидное правое",
-              link: require("../assets/images/Swing-out-right.jpg"),
-              mosquito: false,
-            },
-            left: {
-              name: "Поворотно-откидное левое",
-              link: require("../assets/images/Swing-out-left.jpg"),
-              mosquito: false,
-            },
-          },
-        },
-        doors: {
-          right: {
-            name: "Правое открывание",
-            link: require("../assets/images/Right-opening-door.jpg"),
-          },
-          left: {
-            name: "Левое открывание",
-            link: require("../assets/images/Left-opening-door.jpg"),
-          },
-        },
-        mosqit: {
-          name: "Москитная сетка",
-          link: require("../assets/images/mosqito.png"),
-        },
-      },
-    ],
   },
   mutations: {
     index(state, payload) {
-      state.numberIndex = payload + 1;
+      state.numberIndex = payload;
     },
     isActive(state) {
       state.isActive = !state.isActive;
@@ -71,13 +22,19 @@ export default new Vuex.Store({
     removeWindow(state) {
       state.window.pop();
     },
-    changeWindow(state, payload) {
+    choiceConfig(state, payload) {
       state.window.forEach(() => {
         state.window.splice(0, state.window.length);
         payload.forEach((el) => {
           state.window.push(el);
         });
       });
+    },
+    changeSash(state, payload) {
+      state.window.splice(state.numberIndex, 1, payload);
+    },
+    addMosqito(state, payload) {
+      state.window[payload].mosqito = !state.window[payload].mosqito;
     },
   },
   actions: {},
