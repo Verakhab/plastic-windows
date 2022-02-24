@@ -9,9 +9,9 @@
     </div>
     <div class="main__config">
       <div class="main__config-title">Выберите конфигурацию:</div>
-      <div class="main__config-button-prev"></div>
-      <div class="main__config-button-next"></div>
-      <div class="main__config-base"></div>
+      <div class="main__config-base">
+        <Carousel />
+      </div>
     </div>
     <div class="main__props">
       <div class="main__props-basket"></div>
@@ -31,8 +31,12 @@
 </template>
 
 <script>
+import Carousel from "@/components/Carousel.vue";
 export default {
   name: "MainLayout",
+  components: {
+    Carousel,
+  },
 };
 </script>
 
@@ -40,9 +44,9 @@ export default {
 .main {
   margin: 66px 160px 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.83fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0px 54px;
+  gap: 0px 115px;
   grid-auto-flow: row;
   grid-template-areas:
     "main__calc main__props"
@@ -112,8 +116,8 @@ export default {
   grid-auto-flow: row;
   grid-template-areas:
     "main__config-title main__config-title main__config-title"
-    "main__config-button-prev main__config-base main__config-button-next"
-    "main__config-button-prev main__config-base main__config-button-next";
+    "main__config-base main__config-base main__config-base"
+    "main__config-base main__config-base main__config-base";
   grid-area: main__config;
 }
 .main__config-title {
@@ -124,14 +128,9 @@ export default {
   line-height: 1;
   letter-spacing: 0em;
 }
-.main__config-button-prev {
-  grid-area: main__config-button-prev;
-}
-.main__config-button-next {
-  grid-area: main__config-button-next;
-}
 .main__config-base {
   grid-area: main__config-base;
+  margin-left: 31px;
 }
 .main__props {
   display: grid;
@@ -169,6 +168,11 @@ export default {
 }
 .main__description {
   grid-area: main__description;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.881;
+  letter-spacing: 0em;
   color: var(--second-color);
 }
 </style>
