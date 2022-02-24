@@ -27,6 +27,9 @@ export default {
   --line-color: #9d9d9d;
   --color-accordion: #454545;
   --buttons-color: #33c5f3;
+  --buttons-disabled: #206f86;
+  --errors-color: #ff0000;
+  --order-color: rgb(13, 167, 13);
   --buttons-radius: 3px;
   --buttons-height: 50px;
   --main-font: Geometria, Helvetica, Arial, sans-serif;

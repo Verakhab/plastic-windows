@@ -1,6 +1,5 @@
 <template>
-  <!-- :groupId="groupId" -->
-  <div class="container">
+  <div class="container" :groupId="groupId">
     <dl class="accordion box">
       <accordion-item
         v-for="item in content"
@@ -33,12 +32,12 @@ export default {
   },
   data() {
     return {
-      // groupId: null,
+      groupId: null,
     };
   },
-  // mounted() {
-  //   this.groupId = this.$el.id;
-  // },
+  mounted() {
+    this.groupId = this.$el.id;
+  },
 };
 </script>
 <style>
@@ -46,24 +45,27 @@ export default {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-bottom: 1px solid var(--auxiliary-color);
+  cursor: pointer;
+}
+#trigger-2 {
+  cursor: pointer;
 }
 #trigger-3 {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-top: 1px solid var(--auxiliary-color);
+  cursor: pointer;
 }
 #inner-1 {
   border-bottom: 1px solid var(--auxiliary-color);
 }
 #inner-2 {
+  padding-top: 17px;
   border-top: 1px solid var(--auxiliary-color);
 }
 #inner-3 {
   border-top: 1px solid var(--auxiliary-color);
 }
-/* .container {
-  margin-bottom: 1.5em;
-} */
 .btn-action-delete {
   color: #cc4b37;
   cursor: pointer;
@@ -72,9 +74,9 @@ export default {
   padding: 0;
   margin: 1.57em 0 0 0;
 }
-.accordion div:not(:last-child) {
+/* .accordion div:not(:last-child) {
   border-bottom: 1px solid rgba(10, 10, 10, 0.1);
-}
+} */
 .accordion div:last-child .accordion-item-details {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -133,8 +135,9 @@ export default {
   transform: translateY(2px) rotate(225deg);
 }
 .accordion-item-details {
-  overflow: hidden;
+  /* overflow: hidden; */
   background: rgba(69, 69, 69, 0.5);
+  overflow: visible;
 }
 .accordion-item-enter-active,
 .accordion-item-leave-active {
