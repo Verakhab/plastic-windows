@@ -259,10 +259,10 @@ export default {
   top: 24%;
 }
 .slick-prev {
-  left: -31px;
+  left: -29px;
 }
 .slick-next {
-  right: -29px;
+  right: -31px;
 }
 .slick-prev::before {
   font-size: 32px;
