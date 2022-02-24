@@ -4,15 +4,15 @@
       <div class="main__calc-title">Калькулятор</div>
       <button
         class="main__calc-button-minus"
-        v-if="window.length > 1"
+        v-if="this.$store.state.window.length > 1"
         @click="removeWindow"
       ></button>
       <div class="main__calc-base">
-        <MainCalc :windows="window" />
+        <MainCalc />
       </div>
       <button
         class="main__calc-button-plus"
-        v-if="window.length <= 2"
+        v-if="this.$store.state.window.length <= 2"
         @click="addWindow"
       ></button>
       <div class="main__calc-description">
@@ -39,32 +39,40 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </div>
+    <PopupCalc />
   </main>
 </template>
 
 <script>
 import Carousel from "@/components/Carousel.vue";
 import MainCalc from "@/components/MainCalc.vue";
+import PopupCalc from "@/components/PopupCalc.vue";
+
 export default {
   name: "MainLayout",
   components: {
     Carousel,
     MainCalc,
+    PopupCalc,
   },
-  data() {
-    return {
-      window: [require("../assets/images/deaf.jpg")],
-    };
+  created() {
+    this.$store.commit(
+      "addWindow",
+      this.$store.state.typeWindow[0].windows.deaf
+    );
   },
   methods: {
     removeWindow() {
-      if (this.window.length > 1) {
-        this.window.pop();
+      if (this.$store.state.window.length > 1) {
+        this.$store.commit("removeWindow");
       }
     },
     addWindow() {
-      if (this.window.length <= 2) {
-        this.window.push(require("../assets/images/deaf.jpg"));
+      if (this.$store.state.window.length < 3) {
+        this.$store.commit(
+          "addWindow",
+          this.$store.state.typeWindow[0].windows.deaf
+        );
       }
     },
   },
