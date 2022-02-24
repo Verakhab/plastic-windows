@@ -2,7 +2,10 @@
   <main class="main">
     <div class="main__column-one">
       <div class="main__calc">
-        <div class="main__calc-title">Калькулятор</div>
+        <div class="main__calc-title">
+          Калькулятор
+          <div class="main__calc-title-back"></div>
+        </div>
         <button
           class="main__calc-button-minus"
           v-if="this.$store.state.window.length > 1"
@@ -30,20 +33,28 @@
     <div class="main__column-spacer"></div>
     <div class="main__column-second">
       <div class="main__props">
-        <div class="main__props-basket">
-          <div v-if="$store.state.orderNumber" class="main__props-basket-order">
-            <p class="main__props-basket-order-number">
-              {{ $store.state.orderNumber }}
-            </p>
+        <router-link class="main__props-basket" to="/calc-list">
+          <div class="main__props-basket">
+            <div
+              v-if="$store.state.orderNumber"
+              class="main__props-basket-order"
+            >
+              <p class="main__props-basket-order-number">
+                {{ $store.state.orderNumber }}
+              </p>
+            </div>
           </div>
-        </div>
+        </router-link>
         <div class="main__props-base">
           <Accordion :content="dataSash" />
         </div>
         <button
           class="main__props-button"
           @click="order"
-          :disabled="
+        >
+          Добавить в заказ
+        </button>
+          <!-- :disabled="
             !$store.state.option.heightSash ||
             !$store.state.option.widthSash ||
             !$store.state.option.profil ||
@@ -59,10 +70,7 @@
             !$store.state.option.lowTideLength ||
             !$store.state.option.sideSlopesWidth ||
             !$store.state.option.sideSlopesLength
-          "
-        >
-          Добавить в заказ
-        </button>
+          " -->
       </div>
       <div class="main__description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -184,12 +192,11 @@ export default {
   letter-spacing: 0em;
   margin-bottom: 1.8vmax;
 }
-.main__calc-title::before {
-  content: "";
+.main__calc-title-back {
   width: 12px;
   height: 18px;
   display: inline-block;
-  margin-left: -28px;
+  margin-left: -248px;
   padding-left: 16px;
   background-repeat: no-repeat;
   background-image: url("../assets/images/arrow-calc.svg");
@@ -291,6 +298,7 @@ export default {
   font-size: 12px;
   font-weight: 600;
   line-height: 0.1;
+  color: var(--main-color);
 }
 .main__props-base {
   margin-top: 15px;
