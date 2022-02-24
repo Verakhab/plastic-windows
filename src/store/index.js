@@ -26,7 +26,7 @@ export default new Vuex.Store({
       sideSlopesWidth: "",
       sideSlopesLength: "",
     },
-    calculate: {},
+    calculate: [],
   },
   mutations: {
     index(state, payload) {
@@ -64,12 +64,14 @@ export default new Vuex.Store({
     order(state) {
       state.orderNumber++;
       for (let orderNum = 1; orderNum <= state.orderNumber; orderNum++) {
-        state.calculate[`order_${orderNum}`] = {};
+        state[`order_${orderNum}`] = {};
         state.window.forEach((el, index) => {
-          state.calculate[`order_${orderNum}`][`sash_${index + 1}`] = el;
+          state[`order_${orderNum}`][`sash_${index + 1}`] = el;
         });
-        state.calculate[`order_${orderNum}`]["option"] = state.option;
+        state[`order_${orderNum}`]["option"] = state.option;
+        state[`order_${orderNum}`][`order`] = state.orderNumber;
       }
+      state.calculate.push(state[`order_${state.orderNumber}`]);
     },
   },
   actions: {},

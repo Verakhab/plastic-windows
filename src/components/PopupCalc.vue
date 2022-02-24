@@ -1,8 +1,8 @@
 <template>
-  <div class="popup-calc" v-if="this.$store.state.isActive">
+  <div class="popup-calc" v-if="$store.state.isActive">
     <div class="popup-calc__popup">
       <h2 class="popup-calc__popup-header">
-        Створка {{ this.$store.state.numberIndex + 1 }}
+        Створка {{ $store.state.numberIndex + 1 }}
         <button class="popup-calc__close" @click="close"></button>
       </h2>
       <FormConfig />
