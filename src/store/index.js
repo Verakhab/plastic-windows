@@ -26,7 +26,6 @@ export default new Vuex.Store({
       sideSlopesWidth: "",
       sideSlopesLength: "",
     },
-    order: [],
     calculate: {},
   },
   mutations: {
