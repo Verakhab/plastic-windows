@@ -51,10 +51,7 @@
         <button
           class="main__props-button"
           @click="order"
-        >
-          Добавить в заказ
-        </button>
-          <!-- :disabled="
+          :disabled="
             !$store.state.option.heightSash ||
             !$store.state.option.widthSash ||
             !$store.state.option.profil ||
@@ -70,7 +67,10 @@
             !$store.state.option.lowTideLength ||
             !$store.state.option.sideSlopesWidth ||
             !$store.state.option.sideSlopesLength
-          " -->
+          "
+        >
+          Добавить в заказ
+        </button>
       </div>
       <div class="main__description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

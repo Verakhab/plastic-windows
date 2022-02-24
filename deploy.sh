@@ -4,7 +4,7 @@
 set -e
 
 # сборка
-npm run build
+yarn build
 
 # переход в каталог сборки
 cd dist
@@ -20,6 +20,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:verakhab/plastic-windows.git master:gh-pages
+git push -f git@github.com:verakhab/plastic-windows.git main:gh-pages
 
 cd -
