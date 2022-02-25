@@ -144,7 +144,8 @@ export default {
       this.$store.commit(
         "changeSash",
         new Sash(
-          "Глухое",
+          "Створка",
+          "Глухая",
           "window",
           false,
           "deaf",
@@ -169,6 +170,7 @@ export default {
       this.$store.commit(
         "changeSash",
         new Sash(
+          "Дверь",
           "Правое открывание",
           "door",
           "right",
@@ -195,6 +197,7 @@ export default {
         ? this.$store.commit(
             "changeSash",
             new Sash(
+              "Створка",
               "Правое открывание",
               "window",
               "right",
@@ -207,6 +210,7 @@ export default {
         ? this.$store.commit(
             "changeSash",
             new Sash(
+              "Створка",
               "Поворотно-откидное правое",
               "window",
               "right",
@@ -218,6 +222,7 @@ export default {
         : this.$store.commit(
             "changeSash",
             new Sash(
+              "Дверь",
               "Правое открывание",
               "door",
               "right",
@@ -244,6 +249,7 @@ export default {
         ? this.$store.commit(
             "changeSash",
             new Sash(
+              "Створка",
               "Левое открывание",
               "window",
               "left",
@@ -256,6 +262,7 @@ export default {
         ? this.$store.commit(
             "changeSash",
             new Sash(
+              "Створка",
               "Поворотно-откидное левое",
               "window",
               "left",
@@ -267,6 +274,7 @@ export default {
         : this.$store.commit(
             "changeSash",
             new Sash(
+              "Дверь",
               "Левое открывание",
               "door",
               "left",
@@ -292,7 +300,8 @@ export default {
       this.$store.commit(
         "changeSash",
         new Sash(
-          "Глухое",
+          "Створка",
+          "Глухая",
           "window",
           false,
           "deaf",
@@ -317,6 +326,7 @@ export default {
       this.$store.commit(
         "changeSash",
         new Sash(
+          "Створка",
           "Правое открывание",
           "window",
           this.sash.sideOpen === "left" ? "left" : "right",
@@ -344,6 +354,7 @@ export default {
       this.$store.commit(
         "changeSash",
         new Sash(
+          "Створка",
           "Поворотно-откидное правое",
           "window",
           this.sash.sideOpen === "left" ? "left" : "right",

@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     orderNumber: 0,
-    numberIndex: 0,
+    numberIndex: window.length,
     isActive: false,
     window: [],
     option: {
@@ -61,17 +61,20 @@ export default new Vuex.Store({
     updateOption(state, payload) {
       state.option.payload = payload;
     },
-    order(state) {
+    order(state, payload) {
       state.orderNumber++;
       for (let orderNum = 1; orderNum <= state.orderNumber; orderNum++) {
-        state[`order_${orderNum}`] = {};
         state.window.forEach((el, index) => {
-          state[`order_${orderNum}`][`sash_${index + 1}`] = el;
+          payload[0][`sash_${index + 1}`] = el;
+          el.typeSash === "window"
+            ? (payload[0]["nameWindow"] = "створчатое окно")
+            : (payload[0]["nameBalcon"] = "Балконный блок");
         });
-        state[`order_${orderNum}`]["option"] = state.option;
-        state[`order_${orderNum}`][`order`] = state.orderNumber;
+        payload[0]["option"] = payload[1];
+        payload[0]["order"] = state.orderNumber;
+        payload[0]["quantitySash"] = state.window.length;
       }
-      state.calculate.push(state[`order_${state.orderNumber}`]);
+      state.calculate.push(payload[0]);
     },
   },
   actions: {},

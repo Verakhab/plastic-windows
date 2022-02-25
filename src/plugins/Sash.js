@@ -1,6 +1,7 @@
 export default class Sash {
-  constructor(name, typeSash, sideOpen, configSash, mosqito, image) {
+  constructor(name, nameType, typeSash, sideOpen, configSash, mosqito, image) {
     this.name = name;
+    this.nameType = nameType;
     this.typeSash = typeSash;
     this.sideOpen = sideOpen;
     this.configSash = configSash;

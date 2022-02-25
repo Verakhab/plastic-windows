@@ -60,7 +60,7 @@
           placeholder="Выберите значение"
           name="accessories"
           v-model="option.accessories"
-          :options="profilOption"
+          :options="accessories"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -88,7 +88,7 @@
           placeholder="Выберите значение"
           name="externalLamination"
           v-model="option.externalLamination"
-          :options="profilOption"
+          :options="externalLamination"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -117,7 +117,7 @@
           placeholder="Выберите значение"
           name="glazedWindows"
           v-model="option.glazedWindows"
-          :options="profilOption"
+          :options="glazedWindows"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -145,7 +145,7 @@
           placeholder="Выберите значение"
           name="internalLamination"
           v-model="option.internalLamination"
-          :options="profilOption"
+          :options="internalLamination"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -176,7 +176,7 @@
           placeholder="Выберите значение"
           name="windowsillWidth"
           v-model="option.windowsillWidth"
-          :options="profilOption"
+          :options="windowsillWidth"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -202,7 +202,7 @@
           placeholder="Выберите значение"
           name="windowsillLength"
           v-model="option.windowsillLength"
-          :options="profilOption"
+          :options="windowsillLength"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -231,7 +231,7 @@
           placeholder="Выберите значение"
           name="upperSlopeWidth"
           v-model="option.upperSlopeWidth"
-          :options="profilOption"
+          :options="upperSlopeWidth"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -257,7 +257,7 @@
           placeholder="Выберите значение"
           name="upperSlopeLength"
           v-model="option.upperSlopeLength"
-          :options="profilOption"
+          :options="upperSlopeLength"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -287,7 +287,7 @@
           placeholder="Выберите значение"
           name="lowTideWidth"
           v-model="option.lowTideWidth"
-          :options="profilOption"
+          :options="lowTideWidth"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -313,7 +313,7 @@
           placeholder="Выберите значение"
           name="lowTideLength"
           v-model="option.lowTideLength"
-          :options="profilOption"
+          :options="lowTideLength"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -342,7 +342,7 @@
           placeholder="Выберите значение"
           name="sideSlopesWidth"
           v-model="option.sideSlopesWidth"
-          :options="profilOption"
+          :options="sideSlopesWidth"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -368,7 +368,7 @@
           placeholder="Выберите значение"
           name="sideSlopesLength"
           v-model="option.sideSlopesLength"
-          :options="profilOption"
+          :options="sideSlopesLength"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes"
@@ -405,7 +405,19 @@ export default {
   props: ["item"],
   data() {
     return {
-      profilOption: ["1", "2", "3"],
+      profilOption: ["Проф 1", "Проф 2", "Проф 3"],
+      accessories: ["Фурнитура 1", "Фурнитура 2", "Фурнитура 3"],
+      externalLamination: ["Белый", "Коричневый", "Черный"],
+      internalLamination: ["Белый", "Коричневый", "Черный"],
+      glazedWindows: ["Стеклопакет 1", "Стеклопакет 2", "Стеклопакет 3"],
+      windowsillWidth: ["150", "200", "250"],
+      windowsillLength: ["1000", "1500", "2000"],
+      upperSlopeWidth: ["150", "200", "250"],
+      upperSlopeLength: ["1000", "1500", "2000"],
+      lowTideWidth: ["150", "200", "250"],
+      lowTideLength: ["1000", "1500", "2000"],
+      sideSlopesWidth: ["150", "200", "250"],
+      sideSlopesLength: ["1000", "1500", "2000"],
     };
   },
   computed: {
@@ -419,9 +431,6 @@ export default {
       },
     },
   },
-  // methods: {
-
-  // },
 };
 </script>
 

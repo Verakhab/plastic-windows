@@ -48,10 +48,8 @@
         <div class="main__props-base">
           <Accordion :content="dataSash" />
         </div>
-        <button
-          class="main__props-button"
-          @click="order"
-          :disabled="
+        <button class="main__props-button" @click="order">
+          <!-- :disabled="
             !$store.state.option.heightSash ||
             !$store.state.option.widthSash ||
             !$store.state.option.profil ||
@@ -67,8 +65,7 @@
             !$store.state.option.lowTideLength ||
             !$store.state.option.sideSlopesWidth ||
             !$store.state.option.sideSlopesLength
-          "
-        >
+          " -->
           Добавить в заказ
         </button>
       </div>
@@ -92,6 +89,8 @@ import MainCalc from "@/components/MainCalc.vue";
 import PopupCalc from "@/components/PopupCalc.vue";
 import Accordion from "@/components/Accordion.vue";
 import Sash from "../plugins/Sash.js";
+import OptionsSash from "../plugins/OptionsSash.js";
+import Order from "../plugins/Order.js";
 
 export default {
   name: "MainLayout",
@@ -129,7 +128,8 @@ export default {
     this.$store.commit(
       "addWindow",
       new Sash(
-        "Глухое",
+        "Створка",
+        "Глухая",
         "window",
         false,
         "deaf",
@@ -149,7 +149,8 @@ export default {
         this.$store.commit(
           "addWindow",
           new Sash(
-            "Глухое",
+            "Створка",
+            "Глухая",
             "window",
             false,
             "deaf",
@@ -160,7 +161,26 @@ export default {
       }
     },
     order() {
-      this.$store.commit("order");
+      this.$store.commit("order", [
+        new Order(),
+        new OptionsSash(
+          this.$store.state.option.widthSash,
+          this.$store.state.option.heightSash,
+          this.$store.state.option.profil,
+          this.$store.state.option.accessories,
+          this.$store.state.option.externalLamination,
+          this.$store.state.option.glazedWindows,
+          this.$store.state.option.internalLamination,
+          this.$store.state.option.windowsillWidth,
+          this.$store.state.option.windowsillLength,
+          this.$store.state.option.upperSlopeWidth,
+          this.$store.state.option.upperSlopeLength,
+          this.$store.state.option.lowTideWidth,
+          this.$store.state.option.lowTideLength,
+          this.$store.state.option.sideSlopesWidth,
+          this.$store.state.option.sideSlopesLength
+        ),
+      ]);
     },
   },
 };
