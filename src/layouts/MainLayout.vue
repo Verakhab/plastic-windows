@@ -69,7 +69,7 @@
             !$store.state.option.sideSlopesLength
           "
         >
-          > Добавить в заказ
+          Добавить в заказ
         </button>
       </div>
       <div class="main__description">
