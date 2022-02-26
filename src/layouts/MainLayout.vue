@@ -48,8 +48,10 @@
         <div class="main__props-base">
           <Accordion :content="dataSash" />
         </div>
-        <button class="main__props-button" @click="order">
-          <!-- :disabled="
+        <button
+          class="main__props-button"
+          @click="order"
+          :disabled="
             !$store.state.option.heightSash ||
             !$store.state.option.widthSash ||
             !$store.state.option.profil ||
@@ -65,8 +67,9 @@
             !$store.state.option.lowTideLength ||
             !$store.state.option.sideSlopesWidth ||
             !$store.state.option.sideSlopesLength
-          " -->
-          Добавить в заказ
+          "
+        >
+          > Добавить в заказ
         </button>
       </div>
       <div class="main__description">
@@ -91,6 +94,7 @@ import Accordion from "@/components/Accordion.vue";
 import Sash from "../plugins/Sash.js";
 import OptionsSash from "../plugins/OptionsSash.js";
 import Order from "../plugins/Order.js";
+import isEmpty from "../plugins/isEmpty.js";
 
 export default {
   name: "MainLayout",
@@ -125,18 +129,27 @@ export default {
     };
   },
   created() {
-    this.$store.commit(
-      "addWindow",
-      new Sash(
-        "Створка",
-        "Глухая",
-        "window",
-        false,
-        "deaf",
-        false,
-        require("../assets/images/deaf.jpg")
-      )
-    );
+    if (this.$store.state.window.length === 0) {
+      this.$store.commit(
+        "addWindow",
+        new Sash(
+          "Створка",
+          "Глухая",
+          "window",
+          false,
+          "deaf",
+          false,
+          require("../assets/images/deaf.jpg")
+        )
+      );
+    }
+    if (isEmpty(this.$store.state.components)) {
+      fetch("http://localhost:3000/")
+        .then((res) => res.json())
+        .then((res) => {
+          this.$store.commit("components", res);
+        });
+    }
   },
   methods: {
     removeWindow() {

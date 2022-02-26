@@ -2,7 +2,7 @@
   <div class="item-complect-list">
     <div
       class="item-complect-list__item"
-      v-for="order in $store.state.calculate"
+      v-for="(order, index) in $store.state.calculate"
       :key="order.order"
     >
       <h3 class="item-complect__title">Позиция № {{ order.order }}</h3>
@@ -176,7 +176,14 @@
             order.option.sideSlopesLength
           }}</span>
         </p>
-        <!-- <div class="item-complect__body-amount">Сумма:</div> -->
+        <div
+          class="item-complect__body-item item-complect__body-amount"
+          v-if="$route.path === '/calc-done'"
+        >
+          Сумма:<span class="item-complect__body-item-result">{{
+            $store.state.amount[index]
+          }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -185,6 +192,7 @@
 <script>
 export default {
   name: "ItemComplect",
+  props: ["price"],
 };
 </script>
 
@@ -264,5 +272,9 @@ export default {
   right: 3px;
   width: 71px;
   height: 124px;
+}
+.item-complect__body-amount {
+  padding: 20px 0 10px 0;
+  border-top: 1px solid black;
 }
 </style>

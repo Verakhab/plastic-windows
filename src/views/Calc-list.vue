@@ -7,7 +7,11 @@
       </router-link>
     </div>
     <ItemComplect />
-    <button class="list__button" @click="calculate">Отправить в расчёт</button>
+    <router-link to="/calc-done">
+      <button class="list__button" @click="calculate">
+        Отправить в расчёт
+      </button>
+    </router-link>
   </div>
 </template>
 
@@ -21,7 +25,20 @@ export default {
   },
   methods: {
     calculate() {
-      console.log("calculate");
+      fetch("http://localhost:3000/amount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(this.$store.state.calculate),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.$store.state.amount.splice(0, this.$store.state.amount.length);
+          res.forEach((el) => {
+            this.$store.commit("amount", el);
+          });
+        });
     },
   },
 };

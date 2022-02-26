@@ -8,6 +8,7 @@ export default new Vuex.Store({
     orderNumber: 0,
     numberIndex: window.length,
     isActive: false,
+    components: {},
     window: [],
     option: {
       widthSash: "",
@@ -27,6 +28,7 @@ export default new Vuex.Store({
       sideSlopesLength: "",
     },
     calculate: [],
+    amount: [],
   },
   mutations: {
     index(state, payload) {
@@ -75,6 +77,12 @@ export default new Vuex.Store({
         payload[0]["quantitySash"] = state.window.length;
       }
       state.calculate.push(payload[0]);
+    },
+    components(state, payload) {
+      state.components = payload;
+    },
+    amount(state, payload) {
+      state.amount.push(payload);
     },
   },
   actions: {},
