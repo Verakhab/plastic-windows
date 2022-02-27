@@ -144,9 +144,10 @@ export default {
       );
     }
     if (isEmpty(this.$store.state.components)) {
-      fetch("http://localhost:3000/")
+      fetch("https://evening-woodland-74034.herokuapp.com/")
         .then((res) => res.json())
         .then((res) => {
+          console.log(res);
           this.$store.commit("components", res);
         });
     }

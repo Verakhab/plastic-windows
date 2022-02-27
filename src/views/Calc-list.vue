@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     calculate() {
-      fetch("http://localhost:3000/amount", {
+      fetch("https://evening-woodland-74034.herokuapp.com/amount", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
