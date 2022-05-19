@@ -36,8 +36,7 @@ export default {
 }
 body {
   margin: 0;
-  min-width: 375px;
-  max-width: 1440px;
+  min-width: 320px;
 }
 .app {
   font-family: var(--main-font);

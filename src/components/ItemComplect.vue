@@ -206,7 +206,7 @@ export default {
   flex-direction: column;
   background-color: var(--main-color);
   border-radius: 5px;
-  width: 22.2vw;
+  /* width: 22.2vw; */
   margin: 1.8vmax 40.5px 0 0;
 }
 .item-complect__title {

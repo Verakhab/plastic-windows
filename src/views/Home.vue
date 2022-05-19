@@ -14,3 +14,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.home {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+</style>

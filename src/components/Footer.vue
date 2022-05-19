@@ -18,6 +18,11 @@ export default {
   justify-content: flex-end;
   border-top: 1px solid var(--second-color);
 }
+@media screen and (max-width: 1280px) {
+  .footer {
+    margin: 0 40px;
+  }
+}
 .footer__text {
   font-size: 14px;
   font-style: normal;

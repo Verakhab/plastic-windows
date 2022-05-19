@@ -30,8 +30,13 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  padding: 0.7vmax 11vmax;
+  padding: 10px 160px;
   background: linear-gradient(263.93deg, #3a3a3c -6.49%, #454545 87.1%);
+}
+@media screen and (max-width: 1280px) {
+  .header {
+    padding: 10px 40px;
+  }
 }
 .header__logo {
   flex: 1 1 9vmax;
@@ -46,6 +51,11 @@ export default {
   display: flex;
   flex: 2 1 34.4vmax;
   align-items: center;
+}
+@media screen and (max-width: 1024px) {
+  .header__info {
+    display: none;
+  }
 }
 @media screen and (min-width: 375px) and (max-width: 830px) {
   .header__info {

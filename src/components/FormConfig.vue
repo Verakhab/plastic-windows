@@ -399,8 +399,18 @@ export default {
 .form-config__block-one {
   display: flex;
 }
+@media screen and (max-width: 600px) {
+  .form-config__block-one {
+    flex-direction: column;
+  }
+}
 .form-config__block-second {
   display: flex;
+}
+@media screen and (max-width: 600px) {
+  .form-config__block-second {
+    flex-direction: column;
+  }
 }
 .form-config__type {
   flex: 2 1 auto;

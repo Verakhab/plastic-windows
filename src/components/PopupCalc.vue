@@ -43,11 +43,18 @@ export default {
 .popup-calc__popup {
   position: absolute;
   top: 10vh;
-  left: 5vh;
+  left: 5vw;
   background: var(--main-color);
-  width: 50vw;
+  width: 700px;
   min-height: 40vh;
   border-radius: 5px;
+}
+@media screen and (max-width: 767px) {
+  .popup-calc__popup {
+    top: 5vh;
+    width: 90%;
+    min-height: 40vh;
+  }
 }
 .popup-calc__popup-header {
   display: flex;

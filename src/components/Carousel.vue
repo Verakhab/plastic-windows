@@ -30,9 +30,23 @@ export default {
         initialSlide: 4,
         responsive: [
           {
-            breakpoint: 375,
+            breakpoint: 390,
             settings: {
               slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 530,
+            settings: {
+              slidesToShow: 2,
               slidesToScroll: 1,
             },
           },
@@ -56,9 +70,10 @@ export default {
         case 0:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Глухое",
               "window",
-              "",
+              false,
               "deaf",
               false,
               require("../assets/images/deaf.jpg")
@@ -68,47 +83,52 @@ export default {
         case 1:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Правое открывание",
               "window",
-              "",
-              "rotary",
-              false,
-              require("../assets/images/deaf.jpg")
-            ),
-            new Sash(
-              "Глухое",
-              "window",
               "right",
-              "deaf",
+              "rotary",
               true,
               require("../assets/images/Right-opening-window.jpg")
+            ),
+            new Sash(
+              "Створка",
+              "Глухое",
+              "window",
+              false,
+              "deaf",
+              false,
+              require("../assets/images/deaf.jpg")
             ),
           ]);
           break;
         case 2:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Левое открывание",
               "window",
               "left",
-              "rotary",
+              "swingOut",
               true,
-              require("../assets/images/Left-opening-window.jpg")
+              require("../assets/images/Swing-out-left.jpg")
             ),
             new Sash(
+              "Створка",
               "Глухое",
               "window",
-              "",
+              false,
               "deaf",
               false,
               require("../assets/images/deaf.jpg")
             ),
             new Sash(
+              "Створка",
               "Правое открывание",
               "window",
               "right",
               "rotary",
-              false,
+              true,
               require("../assets/images/Right-opening-window.jpg")
             ),
           ]);
@@ -116,6 +136,7 @@ export default {
         case 3:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Дверь",
               "Левое открывание",
               "door",
               "left",
@@ -124,11 +145,12 @@ export default {
               require("../assets/images/Left-opening-door.jpg")
             ),
             new Sash(
+              "Створка",
               "Правое открывание",
               "window",
               "right",
               "rotary",
-              false,
+              true,
               require("../assets/images/Right-opening-window.jpg")
             ),
           ]);
@@ -136,14 +158,16 @@ export default {
         case 4:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Левое открывание",
               "window",
               "left",
-              "rotary",
+              "swingOut",
               false,
-              require("../assets/images/Left-opening-window.jpg")
+              require("../assets/images/Swing-out-left.jpg")
             ),
             new Sash(
+              "Дверь",
               "Правое открывание",
               "door",
               "right",
@@ -156,6 +180,7 @@ export default {
         case 5:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Дверь",
               "Левое открывание",
               "door",
               "left",
@@ -164,19 +189,21 @@ export default {
               require("../assets/images/Left-opening-door.jpg")
             ),
             new Sash(
+              "Створка",
               "Глухое",
               "window",
-              "",
+              false,
               "deaf",
               false,
               require("../assets/images/deaf.jpg")
             ),
             new Sash(
+              "Створка",
               "Правое открывание",
               "window",
               "right",
               "rotary",
-              false,
+              true,
               require("../assets/images/Right-opening-window.jpg")
             ),
           ]);
@@ -184,22 +211,25 @@ export default {
         case 6:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Левое открывание",
               "window",
-              "left",
-              "rotary",
-              false,
-              require("../assets/images/Left-opening-window.jpg")
+              "right",
+              "swingOut",
+              true,
+              require("../assets/images/Swing-out-right.jpg")
             ),
             new Sash(
+              "Створка",
               "Глухое",
               "window",
-              "",
+              false,
               "deaf",
               false,
               require("../assets/images/deaf.jpg")
             ),
             new Sash(
+              "Дверь",
               "Правое открывание",
               "door",
               "right",
@@ -212,14 +242,16 @@ export default {
         case 7:
           this.$store.commit("choiceConfig", [
             new Sash(
+              "Створка",
               "Левое открывание",
               "window",
               "left",
               "rotary",
-              false,
+              true,
               require("../assets/images/Left-opening-window.jpg")
             ),
             new Sash(
+              "Дверь",
               "Правое открывание",
               "door",
               "right",
@@ -228,9 +260,10 @@ export default {
               require("../assets/images/Right-opening-door.jpg")
             ),
             new Sash(
+              "Створка",
               "Глухое",
               "window",
-              "",
+              false,
               "deaf",
               false,
               require("../assets/images/deaf.jpg")
@@ -247,7 +280,47 @@ export default {
 
 <style>
 .carousel {
-  max-width: 385px;
+  max-width: 1032px;
+}
+@media screen and (max-width: 1280px) {
+  .carousel {
+    max-width: 93vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .carousel {
+    max-width: 92vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  .carousel {
+    max-width: 89vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .carousel {
+    max-width: 86vw;
+  }
+}
+@media screen and (max-width: 530px) {
+  .carousel {
+    max-width: 84vw;
+  }
+}
+@media screen and (max-width: 435px) {
+  .carousel {
+    max-width: 81vw;
+  }
+}
+@media screen and (max-width: 390px) {
+  .carousel {
+    max-width: 79vw;
+  }
+}
+@media screen and (max-width: 320px) {
+  .carousel {
+    max-width: 75vw;
+  }
 }
 .carousel__block {
   display: flex !important;
@@ -260,9 +333,20 @@ export default {
 }
 .slick-prev {
   left: -29px;
+  z-index: 1;
+}
+@media screen and (max-width: 1280px) {
+  .slick-prev {
+    left: 0;
+  }
 }
 .slick-next {
   right: -31px;
+}
+@media screen and (max-width: 1280px) {
+  .slick-next {
+    right: 10px;
+  }
 }
 .slick-prev::before {
   font-size: 32px;

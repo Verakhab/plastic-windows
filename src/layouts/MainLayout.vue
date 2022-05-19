@@ -30,7 +30,6 @@
         </div>
       </div>
     </div>
-    <div class="main__column-spacer"></div>
     <div class="main__column-second">
       <div class="main__props">
         <router-link class="main__props-basket" to="/calc-list">
@@ -147,7 +146,6 @@ export default {
       fetch("https://evening-woodland-74034.herokuapp.com/")
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           this.$store.commit("components", res);
         });
     }
@@ -202,17 +200,63 @@ export default {
 
 <style>
 .main {
+  width: 100%;
   display: flex;
-  margin: 66px 11vmax 69px;
+  justify-content: space-between;
+  margin: 66px 160px 69px;
+}
+@media screen and (max-width: 1280px) {
+  .main {
+    margin: 66px 40px 69px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .main__column-one {
-  flex: 1 1 25vmax;
+  max-width: 1064px;
 }
-.main__column-spacer {
-  flex: 1 1 1.5vmax;
+@media screen and (max-width: 2560px) {
+  .main__column-one {
+    max-width: 730px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .main__column-one {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .main__column-one {
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .main__column-one {
+    max-width: 100%;
+  }
 }
 .main__column-second {
-  flex: 1 1 455px;
+  max-width: 1064px;
+}
+@media screen and (max-width: 2560px) {
+  .main__column-second {
+    max-width: 730px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .main__column-second {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .main__column-second {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .main__column-second {
+    max-width: 100%;
+  }
 }
 .main__calc {
   margin-bottom: 3vmax;
@@ -257,6 +301,28 @@ export default {
   background-repeat: no-repeat;
   opacity: 0.5;
 }
+@media screen and (max-width: 1280px) {
+  .main__calc-button-minus {
+    left: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .main__calc-button-minus {
+    top: 53%;
+    border-radius: 12px;
+    background-size: 50%;
+  }
+}
+@media screen and (max-width: 471px) {
+  .main__calc-button-minus {
+    top: 49%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .main__calc-button-minus {
+    top: 48%;
+  }
+}
 .main__calc-button-minus:hover {
   transition: 0.5s;
   opacity: 1;
@@ -277,6 +343,29 @@ export default {
   background-image: url("../assets/images/calc-add.svg");
   background-repeat: no-repeat;
   opacity: 0.5;
+}
+@media screen and (max-width: 1280px) {
+  .main__calc-button-plus {
+    right: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .main__calc-button-plus {
+    top: 53%;
+    right: -25px;
+    border-radius: 12px;
+    background-size: 50%;
+  }
+}
+@media screen and (max-width: 471px) {
+  .main__calc-button-plus {
+    top: 49%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .main__calc-button-plus {
+    top: 48%;
+  }
 }
 .main__calc-button-plus:hover {
   transition: 0.5s;
@@ -301,6 +390,11 @@ export default {
 }
 .main__config-base {
   margin-left: 31px;
+}
+@media screen and (max-width: 1280px) {
+  .main__config-base {
+    margin-left: 0;
+  }
 }
 .main__props {
   display: flex;
@@ -347,6 +441,12 @@ export default {
   color: var(--main-color);
   cursor: pointer;
   margin-top: 20px;
+}
+@media screen and (max-width: 1280px) {
+  .main__props-button {
+    width: 100%;
+    align-self: center;
+  }
 }
 .main__description {
   font-size: 16px;

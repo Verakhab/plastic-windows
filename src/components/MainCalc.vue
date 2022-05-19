@@ -6,7 +6,7 @@
       :key="index"
     >
       <div class="main-calc__window">
-        <img :src="wind.image" alt="window" />
+        <img class="main-calc__window-img" :src="wind.image" alt="window" />
         <img
           class="main-calc__window-mosqito"
           v-if="wind.mosqito"
@@ -40,10 +40,51 @@ export default {
 .main-calc__window {
   position: relative;
 }
+@media screen and (max-width: 650px) {
+  .main-calc__window-img {
+    width: 102px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-calc__window-img {
+    width: 74px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .main-calc__window-img {
+    width: 58px;
+  }
+}
 .main-calc__window-mosqito {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 17px;
+  right: 17px;
+  width: 114px;
+  height: 214px;
+}
+@media screen and (max-width: 650px) {
+  .main-calc__window-mosqito {
+    width: 80px;
+    height: 150px;
+    top: 11px;
+    right: 11px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-calc__window-mosqito {
+    width: 58px;
+    height: 107px;
+    top: 9px;
+    right: 8px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .main-calc__window-mosqito {
+    width: 46px;
+    height: 84px;
+    top: 7px;
+    right: 6px;
+  }
 }
 .main-calc__button {
   width: 25px;
@@ -57,5 +98,22 @@ export default {
   top: 44.5%;
   left: 40.5%;
   z-index: 1;
+}
+@media screen and (max-width: 650px) {
+  .main-calc__button {
+    left: 37.5%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-calc__button {
+    top: 41.5%;
+    left: 32.5%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .main-calc__button {
+    top: 38.5%;
+    left: 28%;
+  }
 }
 </style>

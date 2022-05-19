@@ -47,6 +47,7 @@ export default new Vuex.Store({
       state.window.forEach(() => {
         state.window.splice(0, state.window.length);
         payload.forEach((el) => {
+          console.log(el);
           state.window.push(el);
         });
       });
