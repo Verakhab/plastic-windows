@@ -284,7 +284,7 @@ export default {
 }
 @media screen and (max-width: 1280px) {
   .carousel {
-    max-width: 93vw;
+    max-width: 93.8vw;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -329,23 +329,26 @@ export default {
 }
 .slick-prev,
 .slick-next {
-  top: 24%;
+  display: flex !important;
+  top: 28%;
+  width: 30px;
+  height: 30px;
 }
 .slick-prev {
-  left: -29px;
-  z-index: 1;
+  left: -30px;
 }
 @media screen and (max-width: 1280px) {
   .slick-prev {
     left: 0;
+    z-index: 1;
   }
 }
 .slick-next {
-  right: -31px;
+  right: -30px;
 }
 @media screen and (max-width: 1280px) {
   .slick-next {
-    right: 10px;
+    right: 0;
   }
 }
 .slick-prev::before {
@@ -358,6 +361,7 @@ export default {
 .slick-next::before {
   font-size: 32px;
   opacity: 1;
+  line-height: 1.02;
   color: var(--buttons-color);
   background-image: url("../assets/images/button-carousel-next.svg");
   background-repeat: no-repeat;

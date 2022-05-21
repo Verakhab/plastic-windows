@@ -330,7 +330,7 @@ export default {
 .main__calc-button-plus {
   position: absolute;
   top: 48%;
-  right: -62px;
+  right: -58px;
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -389,13 +389,13 @@ export default {
   margin-bottom: 2.6vmax;
 }
 .main__config-base {
-  margin-left: 31px;
+  /* margin-left: 31px; */
 }
-@media screen and (max-width: 1280px) {
+/* @media screen and (max-width: 1280px) {
   .main__config-base {
     margin-left: 0;
   }
-}
+} */
 .main__props {
   display: flex;
   flex-direction: column;
