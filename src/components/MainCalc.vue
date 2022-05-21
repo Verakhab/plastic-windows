@@ -98,21 +98,23 @@ export default {
   top: 44.5%;
   left: 40.5%;
   z-index: 1;
+  font-size: 0;
 }
 @media screen and (max-width: 650px) {
   .main-calc__button {
-    left: 37.5%;
+    left: 38%;
+    top: 41.5%;
   }
 }
 @media screen and (max-width: 500px) {
   .main-calc__button {
-    top: 41.5%;
-    left: 32.5%;
+    top: 39.5%;
+    left: 33.5%;
   }
 }
 @media screen and (max-width: 390px) {
   .main-calc__button {
-    top: 38.5%;
+    top: 36.5%;
     left: 28%;
   }
 }

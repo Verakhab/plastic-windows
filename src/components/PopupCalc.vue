@@ -37,23 +37,24 @@ export default {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-
   z-index: 2;
+}
+@media screen and (max-width: 767px) {
+  .popup-calc {
+    overflow-y: scroll;
+  }
 }
 .popup-calc__popup {
   position: absolute;
-  top: 10vh;
   left: 5vw;
   background: var(--main-color);
   width: 700px;
-  min-height: 40vh;
   border-radius: 5px;
 }
 @media screen and (max-width: 767px) {
   .popup-calc__popup {
-    top: 5vh;
+    top: 7%;
     width: 90%;
-    min-height: 40vh;
   }
 }
 .popup-calc__popup-header {
@@ -66,6 +67,11 @@ export default {
   background: var(--buttons-color);
   margin: 0;
 }
+@media screen and (max-width: 1024px) {
+  .popup-calc__popup-header {
+    padding: 10px 30px;
+  }
+}
 .popup-calc__close {
   background-image: url("../assets/images/close.png");
   width: 20px;
@@ -74,5 +80,7 @@ export default {
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer;
+  padding-right: 0;
+  font-size: 0;
 }
 </style>

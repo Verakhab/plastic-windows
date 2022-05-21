@@ -13,7 +13,7 @@
             v-model="sash.typeSash"
             @change="typeWindow"
           />
-          <label for="window-door">Окно</label>
+          <label for="window-door">&nbsp;Окно</label>
         </div>
         <div class="form-config__type-door">
           <input
@@ -23,7 +23,7 @@
             v-model="sash.typeSash"
             @change="typeDoor"
           />
-          <label for="window-door">Дверь</label>
+          <label for="window-door">&nbsp;Дверь</label>
         </div>
       </div>
       <div
@@ -41,7 +41,7 @@
             v-model="sash.sideOpen"
             @change="sideRight"
           />
-          <label for="left-right">Правое</label>
+          <label for="left-right">&nbsp;Правое</label>
         </div>
         <div class="form-config__type-door form-config__type-door_open">
           <input
@@ -51,7 +51,7 @@
             v-model="sash.sideOpen"
             @change="sideLeft"
           />
-          <label for="left-right">Левое</label>
+          <label for="left-right">&nbsp;Левое</label>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
             v-model="sash.configSash"
             @change="configDeaf"
           />
-          <label for="type-open">Глухое</label>
+          <label for="type-open">&nbsp;Глухое</label>
         </div>
         <div class="form-config__type-door form-config__type-door_config">
           <input
@@ -81,7 +81,7 @@
             v-model="sash.configSash"
             @change="configRotary"
           />
-          <label for="type-open">Поворотное</label>
+          <label for="type-open">&nbsp;Поворотное</label>
         </div>
         <div class="form-config__type-door form-config__type-door_config">
           <input
@@ -91,7 +91,7 @@
             v-model="sash.configSash"
             @change="configSwingOut"
           />
-          <label for="type-open">Поворотно-откидное</label>
+          <label for="type-open">&nbsp;Поворотно-откидное</label>
         </div>
       </div>
       <div
@@ -108,7 +108,7 @@
             v-model="sash.mosqito"
             @change="changeMosqito"
           />
-          <label for="mosqito">Москитная сетка</label>
+          <label for="mosqito">&nbsp;Москитная сетка</label>
         </div>
       </div>
     </div>
@@ -396,6 +396,11 @@ export default {
   color: black;
   padding: 30px 30px;
 }
+@media screen and (max-width: 1024px) {
+  .form-config {
+    padding: 10px 30px;
+  }
+}
 .form-config__block-one {
   display: flex;
 }
@@ -426,6 +431,14 @@ export default {
 }
 .form-config__type-header_open {
   margin-top: 0;
+}
+.form-config__type-window {
+  display: flex;
+  align-items: center;
+}
+.form-config__type-door {
+  display: flex;
+  align-items: center;
 }
 .form-config__button {
   margin-top: 1.7em;

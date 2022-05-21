@@ -200,14 +200,30 @@ export default {
 .item-complect-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .item-complect-list__item {
   display: flex;
   flex-direction: column;
   background-color: var(--main-color);
   border-radius: 5px;
-  /* width: 22.2vw; */
-  margin: 1.8vmax 40.5px 0 0;
+  margin-top: 1.8vmax;
+  margin-right: 20px;
+  width: 32%;
+  min-width: 350px;
+  max-width: 600px;
+}
+.item-complect-list__item:last-child {
+  margin-top: 1.8vmax;
+  margin-right: 0;
+}
+@media screen and (max-width: 1059px) {
+  .item-complect-list__item {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-right: unset;
+  }
 }
 .item-complect__title {
   background-color: var(--buttons-color);
@@ -268,10 +284,10 @@ export default {
 }
 .main-calc__window-mosqito_complect {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 71px;
-  height: 124px;
+  top: 8px;
+  right: 8px;
+  width: 61px;
+  height: 114px;
 }
 .item-complect__body-amount {
   padding: 20px 0 10px 0;

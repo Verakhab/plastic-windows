@@ -20,7 +20,27 @@
           @click="addWindow"
         ></button>
         <div class="main__calc-description">
-          Окно 3х створчатое, габарит (ШхВ) 1800х1200мм
+          {{ this.nameWin }}
+          {{
+            this.nameWin === "Окно"
+              ? $store.state.window.length !== 1
+                ? `${$store.state.window.length}-`
+                : ""
+              : ""
+          }}{{
+            this.nameWin === "Окно"
+              ? $store.state.window.length === 1
+                ? "одностворчатое"
+                : "х"
+              : ""
+          }}
+          {{
+            this.nameWin === "Окно"
+              ? $store.state.window.length !== 1
+                ? "створчатое"
+                : ""
+              : ""
+          }}
         </div>
       </div>
       <div class="main__config">
@@ -149,6 +169,18 @@ export default {
           this.$store.commit("components", res);
         });
     }
+  },
+  computed: {
+    nameWin() {
+      let ty = "";
+      for (let i = 0; i < this.$store.state.window.length; i++) {
+        if (this.$store.state.window[i].typeSash === "door") {
+          ty = "Балконный блок";
+          break;
+        } else ty = "Окно";
+      }
+      return ty;
+    },
   },
   methods: {
     removeWindow() {
@@ -308,19 +340,19 @@ export default {
 }
 @media screen and (max-width: 650px) {
   .main__calc-button-minus {
-    top: 53%;
+    top: 50.5%;
     border-radius: 12px;
     background-size: 50%;
   }
 }
 @media screen and (max-width: 471px) {
   .main__calc-button-minus {
-    top: 49%;
+    top: 47.7%;
   }
 }
 @media screen and (max-width: 390px) {
   .main__calc-button-minus {
-    top: 48%;
+    top: 47%;
   }
 }
 .main__calc-button-minus:hover {
@@ -351,7 +383,7 @@ export default {
 }
 @media screen and (max-width: 650px) {
   .main__calc-button-plus {
-    top: 53%;
+    top: 50.5%;
     right: -25px;
     border-radius: 12px;
     background-size: 50%;
@@ -359,12 +391,12 @@ export default {
 }
 @media screen and (max-width: 471px) {
   .main__calc-button-plus {
-    top: 49%;
+    top: 47.7%;
   }
 }
 @media screen and (max-width: 390px) {
   .main__calc-button-plus {
-    top: 48%;
+    top: 47%;
   }
 }
 .main__calc-button-plus:hover {
@@ -388,14 +420,6 @@ export default {
   letter-spacing: 0em;
   margin-bottom: 2.6vmax;
 }
-.main__config-base {
-  /* margin-left: 31px; */
-}
-/* @media screen and (max-width: 1280px) {
-  .main__config-base {
-    margin-left: 0;
-  }
-} */
 .main__props {
   display: flex;
   flex-direction: column;

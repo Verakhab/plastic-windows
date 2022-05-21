@@ -108,6 +108,12 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+@media screen and (max-width: 359px) {
+  .list__all-price {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+}
 .list__all-price-number {
   font-size: 30px;
   font-style: normal;

@@ -520,6 +520,9 @@ export default {
 .form-system__select .vs__search {
   cursor: pointer;
 }
+.vs__selected ~ .vs__search {
+  display: none;
+}
 .form-system__select .vs__dropdown-menu {
   background: var(--auxiliary-color);
 }
@@ -528,6 +531,11 @@ export default {
 }
 .form-system__select .vs__selected {
   color: var(--main-color);
+}
+@media screen and (max-width: 767px) {
+  .form-system__select .vs__selected {
+    font-size: 11px;
+  }
 }
 .form-system__select .vs__clear {
   display: none;
